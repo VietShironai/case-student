@@ -1,5 +1,6 @@
 package com.codegym.cms.controller;
 
+import com.codegym.cms.model.School;
 import com.codegym.cms.model.Student;
 import com.codegym.cms.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,6 +84,10 @@ public class StudentController {
     public String deleteStudent(@ModelAttribute("student") Student student) {
         studentService.remove(student.getId());
         return "redirect:students";
+    }
+    @ModelAttribute("school")
+    public Iterable<School> schools(){
+        return studentService.findAll();
     }
 
 }
