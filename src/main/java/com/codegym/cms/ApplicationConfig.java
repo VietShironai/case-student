@@ -1,6 +1,8 @@
 package com.codegym.cms;
 
+import com.codegym.cms.service.SchoolService;
 import com.codegym.cms.service.StudentService;
+import com.codegym.cms.service.impl.SchoolServiceImpl;
 import com.codegym.cms.service.impl.StudentServiceImpl;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -75,6 +77,9 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
     @Bean
     public StudentService studentService() {
         return new StudentServiceImpl();
+    }
+    @Bean
+    public SchoolService schoolService(){ return new SchoolServiceImpl();
     }
 
 
