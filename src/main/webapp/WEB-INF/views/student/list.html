@@ -6,6 +6,7 @@
 </head>
 <body>
 <a href="/create-student">Create new student</a>
+<a href="/schools">List School</a>
 
 <h1>List students</h1>
 <table border="1">
@@ -13,7 +14,7 @@
         <th>First name</th>
         <th>Last name</th>
         <th>Grade</th>
-        <th>School</th>
+<!--        <th>School</th>-->
         <th>Edit</th>
         <th>Delete</th>
     </tr>
@@ -23,7 +24,7 @@
             <td th:text="${student.firstName}"></td>
             <td th:text="${student.lastName}"></td>
             <td th:text="${student.grade}"></td>
-            <td th:text="${student.school.name}"></td>
+<!--            <td th:text="${student.school.name}"></td>-->
             <td><a th:href="@{/edit-student/__${student.id}__ }">Edit</a></td>
             <td><a th:href="@{/delete-student/__${student.id}__ }">Delete</a></td>
         </tr>

@@ -16,7 +16,7 @@
     <th:block th:each="school: ${schools}">
         <tr>
 
-            <td th:text="*{school.name}"></td>
+            <td th:text="${school.name}"></td>
             <td th:text="${school.address}"></td>
             <td><a th:href="@{/edit-school/__${school.id}__ }">Edit</a></td>
             <td><a th:href="@{/delete-school/__${school.id}__ }">Delete</a></td>
