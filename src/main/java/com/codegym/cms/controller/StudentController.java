@@ -5,14 +5,14 @@ import com.codegym.cms.model.Student;
 import com.codegym.cms.service.SchoolService;
 import com.codegym.cms.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.util.List;
 
 @Controller
 public class StudentController {
@@ -24,8 +24,8 @@ public class StudentController {
 
 
     @GetMapping("/students")
-    public ModelAndView listCustomers() {
-        Iterable<Student> students = (Iterable<Student>) studentService.findAll();
+    public ModelAndView listCustomers(Pageable pageable) {
+        Page<Student> students = studentService.findAll(pageable);
         ModelAndView modelAndView = new ModelAndView("/student/list");
         modelAndView.addObject("students", students);
         return modelAndView;
