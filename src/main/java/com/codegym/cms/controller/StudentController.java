@@ -2,6 +2,7 @@ package com.codegym.cms.controller;
 
 import com.codegym.cms.model.School;
 import com.codegym.cms.model.Student;
+import com.codegym.cms.service.SchoolService;
 import com.codegym.cms.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,8 @@ import java.util.List;
 public class StudentController {
     @Autowired
     private StudentService studentService;
+    @Autowired
+    private SchoolService schoolService;
 
 
 

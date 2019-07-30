@@ -16,6 +16,14 @@
     <input type="text" th:field="*{lastName}"><br>
     <th> Grade</th>
     <input type="text" th:field="*{grade}"><br>
+    <tr>
+        <td>School:</td>
+        <td>
+            <select th:field="*{}">
+                <option th:each="s : ${school}" th:value="${s.id}" th:text="${s.name}"></option>
+            </select>
+        </td>
+    </tr>
 
 
     <input type="submit" value="Create">
