@@ -20,15 +20,19 @@ public class StudentController {
     @Autowired
     private SchoolService schoolService;
 
-
-
     @GetMapping("/students")
-    public ModelAndView listCustomers(Pageable pageable) {
-        Page<Student> students = studentService.findAll(pageable);
+    public ModelAndView listStudent(@RequestParam("s") Optional<String> s, Pageable pageable){
+        Page<Student> students;
+        if(s.isPresent()){
+            students = studentService.findAllByFirstNameContaining(s.get(), pageable);
+        } else {
+            students = studentService.findAll(pageable);
+        }
         ModelAndView modelAndView = new ModelAndView("/student/list");
         modelAndView.addObject("students", students);
         return modelAndView;
     }
+
 
     @GetMapping("/create-student")
     public ModelAndView formCreate() {
@@ -91,18 +95,7 @@ public class StudentController {
     public Iterable<School> schools(){
         return schoolService.findAll();
     }
-    @GetMapping("/students")
-    public ModelAndView listStudent(@RequestParam("s") Optional<String> s, Pageable pageable){
-        Page<Student> students;
-        if(s.isPresent()){
-            students = studentService.findAllByFirstNameContaining(s.get(), pageable);
-        } else {
-            students = studentService.findAll(pageable);
-        }
-        ModelAndView modelAndView = new ModelAndView("/student/list");
-        modelAndView.addObject("students", students);
-        return modelAndView;
-    }
+
 
 }
 
