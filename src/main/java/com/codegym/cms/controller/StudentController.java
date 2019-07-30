@@ -90,7 +90,7 @@ public class StudentController {
     }
     @ModelAttribute("school")
     public Iterable<School> schools(){
-        return studentService.findAll();
+        return schoolService.findAll();
     }
 
 }
