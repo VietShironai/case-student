@@ -88,7 +88,7 @@ public class StudentController {
         studentService.remove(student.getId());
         return "redirect:students";
     }
-    @ModelAttribute("school")
+    @ModelAttribute("schools")
     public Iterable<School> schools(){
         return schoolService.findAll();
     }
