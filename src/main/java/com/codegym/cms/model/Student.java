@@ -18,6 +18,9 @@ public class Student {
         this.lastName = lastName;
         this.grade = grade;
     }
+    @ManyToOne
+    @JoinColumn(name = "school_id")
+    private School school;
 
 
     public Long getId() {
