@@ -9,5 +9,6 @@ public interface StudentService {
     Student findById(Long id);
     void save(Student student);
     void remove(Long id);
+    Page<Student> findAllByFirstNameContaining(String firstname, Pageable pageable);
 
 }

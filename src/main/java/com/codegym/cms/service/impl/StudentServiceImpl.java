@@ -33,4 +33,9 @@ public class StudentServiceImpl implements StudentService {
         studentRepository.delete(id);
 
     }
+
+    @Override
+    public Page<Student> findAllByFirstNameContaining(String firstname, Pageable pageable) {
+        return studentRepository.findAllByFirstNameContaining(firstname,pageable);
+    }
 }
