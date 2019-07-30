@@ -3,7 +3,7 @@ package com.codegym.cms.model;
 import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name = "student")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,7 +19,7 @@ public class Student {
         this.grade = grade;
     }
     @ManyToOne
-    @JoinColumn(name = "School_id")
+    @JoinColumn(name = "school_id")
     private School school;
 
 
