@@ -5,17 +5,19 @@
     <title>Title</title>
 </head>
 <body>
-<a href="/create-student">Create new student</a>
+<a href="/create-school">Create new school</a>
 
 <h1>List School</h1>
 <table border="1">
     <tr>
         <th>School Name</th>
+        <th>School Address</th>
     </tr>
     <th:block th:each="school: ${schools}">
         <tr>
 
             <td th:text="${school.name}"></td>
+            <td th:text="${school.address}"></td>
             <td><a th:href="@{/edit-school/__${school.id}__ }">Edit</a></td>
             <td><a th:href="@{/delete-school/__${school.id}__ }">Delete</a></td>
         </tr>

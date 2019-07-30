@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<h1>Delete School</h1>
+<h2>Are you sure?</h2>
+<p>
+    <a href="/schools"> Back to list</a>
+</p>
+<form th:action="@{/delete-school}"  th:object="${school}" method="post">
+    <input th:type="hidden" name="id" th:field="*{id}">
+    <input type="submit" value=" Delete">
+</form>
 
-</body>
+
 </html>

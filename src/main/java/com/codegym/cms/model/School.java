@@ -10,6 +10,8 @@ public class School {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
 
+    private String address;
+
     private String name;
 
     @OneToMany(targetEntity = Student.class)
@@ -44,5 +46,13 @@ public class School {
 
     public void setStudents(List<Student> students) {
         this.students = students;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
