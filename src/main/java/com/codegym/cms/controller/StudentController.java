@@ -4,9 +4,11 @@ import com.codegym.cms.model.School;
 import com.codegym.cms.model.Student;
 import com.codegym.cms.service.SchoolService;
 import com.codegym.cms.service.StudentService;
+import net.bytebuddy.implementation.bind.annotation.Default;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -21,7 +23,7 @@ public class StudentController {
     private SchoolService schoolService;
 
     @GetMapping("/students")
-    public ModelAndView listStudent(@RequestParam("s") Optional<String> s, Pageable pageable){
+    public ModelAndView listStudent(@RequestParam("s") Optional<String> s, @PageableDefault(size = 3) Pageable pageable){
         Page<Student> students;
         if(s.isPresent()){
             students = studentService.findAllByFirstNameContaining(s.get(), pageable);

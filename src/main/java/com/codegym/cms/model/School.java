@@ -1,6 +1,8 @@
 package com.codegym.cms.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -12,6 +14,8 @@ public class School {
 
     private String address;
 
+    @NotEmpty
+    @Size(min = 2, max = 30)
     private String name;
 
     @OneToMany
