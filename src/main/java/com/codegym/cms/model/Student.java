@@ -19,7 +19,6 @@ public class Student {
         this.grade = grade;
     }
     @ManyToOne
-    @JoinColumn(name = "school_id")
     private School school;
 
 

@@ -14,7 +14,7 @@ public class School {
 
     private String name;
 
-    @OneToMany(targetEntity = Student.class)
+    @OneToMany
     private List<Student> students;
 
 
